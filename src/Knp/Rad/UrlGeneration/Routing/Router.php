@@ -8,6 +8,15 @@ use Symfony\Component\Routing\RouterInterface;
 
 class Router implements RouterInterface
 {
+    /**
+     * @var RouterInterface $router
+     */
+    private $router;
+
+    /**
+     * @var ParameterStack $parameters
+     */
+    private $parameters;
 
     /**
      * @param RouterInterface $router
