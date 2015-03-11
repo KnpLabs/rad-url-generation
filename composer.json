@@ -1,0 +1,34 @@
+{
+    "name": "knplabs/rad-url-generation",
+    "description": "Simply auto-complete needed route parameters with existing ones.",
+    "license": "MIT",
+    "keywords": ["routing", "router", "URL", "URI", "autocompletion", "rad"],
+    "authors": [
+        {
+            "name": "KNPLabs Team",
+            "email": "hello@knplabs.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "symfony/dependency-injection": "~2.5",
+        "symfony/http-kernel": "~2.5",
+        "symfony/routing": "~2.5"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Knp\\Rad\\UrlGeneration": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
