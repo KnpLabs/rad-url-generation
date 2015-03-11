@@ -1,15 +1,15 @@
 parameters:
-    router.options.generator_base_class: Knp\Rad\UrlGeneration\Routing\Generator\UrlGenerator
-    router.options.generator_class: Knp\Rad\UrlGeneration\Routing\Generator\UrlGenerator
+    knp_rad_url_generation.routing.parameter_stack.class:  Knp\Rad\UrlGeneration\Routing\ParameterStack
+    knp_rad_url_generation.routing.router.class:           Knp\Rad\UrlGeneration\Routing\Router
 
 services:
     knp_rad_url_generation.routing.parameter_stack:
-        class: Knp\Rad\UrlGeneration\Routing\ParameterStack
+        class: %knp_rad_url_generation.routing.parameter_stack.class%
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onRequest }
 
     knp_rad_url_generation.routing.router:
-        class: Knp\Rad\UrlGeneration\Routing\Router
+        class: %knp_rad_url_generation.routing.router.class%
         decorates: router
         arguments:
             - @knp_rad_url_generation.routing.router.inner
