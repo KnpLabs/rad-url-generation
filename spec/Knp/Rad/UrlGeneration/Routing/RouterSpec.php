@@ -12,7 +12,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 class RouterSpec extends ObjectBehavior
 {
-    function let(RouterInterface $router, ParameterStack $parameters, RouteCollection $routes, Route $route, CompiledRoute $compiled)
+    public function let(RouterInterface $router, ParameterStack $parameters, RouteCollection $routes, Route $route, CompiledRoute $compiled)
     {
         $this->beConstructedWith($router, $parameters);
 
@@ -27,12 +27,12 @@ class RouterSpec extends ObjectBehavior
         $parameters->get('p2')->willReturn(2);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Knp\Rad\UrlGeneration\Routing\Router');
     }
 
-    function it_autocompletes_with_parameters($router)
+    public function it_autocompletes_with_parameters($router)
     {
         $router
             ->generate('my_route', [ 'p1' => 1, 'p2' => 2 ], RouterInterface::ABSOLUTE_URL)
@@ -46,7 +46,7 @@ class RouterSpec extends ObjectBehavior
         ;
     }
 
-    function it_just_call_router_if_route_doesnt_exists($router)
+    public function it_just_call_router_if_route_doesnt_exists($router)
     {
         $router->generate('other', [ 'arg' => 'test' ], RouterInterface::ABSOLUTE_PATH)->shouldBeCalled();
 

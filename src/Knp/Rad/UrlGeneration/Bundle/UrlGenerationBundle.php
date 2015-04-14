@@ -12,6 +12,6 @@ class UrlGenerationBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return new UrlGenerationExtension;
+        return new UrlGenerationExtension();
     }
 }

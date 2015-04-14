@@ -2,27 +2,26 @@
 
 namespace Knp\Rad\UrlGeneration\Routing;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class ParameterStack
 {
     /**
-     * @var mixed[] $parameters
+     * @var mixed[]
      */
-    private $parameters = [];
+    private $parameters;
+
+    public function __construct()
+    {
+        $this->parameters = [];
+    }
 
     /**
-     * @param GetResponseEvent $event
-     *
-     * @return void
+     * @param string $name
+     * @param string $value
      */
-    public function onRequest(GetResponseEvent $event)
+    public function set($name, $value)
     {
-        $request    = $event->getRequest();
-        $parameters = $request->attributes->get('_route_params', []);
-
-        $this->parameters = array_merge($this->parameters, $parameters);
+        $this->parameters[$name] = $value;
     }
 
     /**
@@ -41,7 +40,7 @@ class ParameterStack
     /**
      * @return mixed[]
      */
-    public function getParameters()
+    public function all()
     {
         return $this->parameters;
     }

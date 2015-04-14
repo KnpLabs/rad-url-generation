@@ -2,19 +2,18 @@
 
 namespace Knp\Rad\UrlGeneration\Routing;
 
-use Knp\Rad\UrlGeneration\Routing\ParameterStack;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouterInterface;
 
 class Router implements RouterInterface
 {
     /**
-     * @var RouterInterface $router
+     * @var RouterInterface
      */
     private $router;
 
     /**
-     * @var ParameterStack $parameters
+     * @var ParameterStack
      */
     private $parameters;
 
