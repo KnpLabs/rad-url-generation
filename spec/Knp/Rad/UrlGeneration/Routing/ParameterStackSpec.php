@@ -3,45 +3,32 @@
 namespace spec\Knp\Rad\UrlGeneration\Routing;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class ParameterStackSpec extends ObjectBehavior
 {
-    function let(ParameterBag $attributes, Request $request, GetResponseEvent $event)
-    {
-        $event->getRequest()->willReturn($request);
-        $request->attributes = $attributes;
-
-        $attributes->get('_route_params', Argument::any())->willReturn(['foo' => 'bar', 'baz' => 2]);
-    }
-
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Knp\Rad\UrlGeneration\Routing\ParameterStack');
     }
 
-    function it_registers_parameters($event)
+    public function it_sets_new_parameters()
     {
-        $this->onRequest($event);
+        $this->set('foo', 'bar');
+        $this->set('baz', 2);
 
-        $this->getParameters()->shouldReturn(['foo' => 'bar', 'baz' => 2]);
-    }
-
-    function it_return_parameter_if_exists($event)
-    {
-        $this->onRequest($event);
-
+        $this->all()->shouldReturn(['foo' => 'bar', 'baz' => 2]);
         $this->get('foo')->shouldReturn('bar');
         $this->get('baz')->shouldReturn(2);
     }
 
-    function it_returns_null_if_doesnt_exists($event)
+    public function it_replace_existing_parameter()
     {
-        $this->onRequest($event);
+        $this->set('foo', 'bar');
+        $this->set('baz', 2);
+        $this->set('foo', 1);
 
-        $this->get('null')->shouldReturn(null);
+        $this->all()->shouldReturn(['foo' => 1, 'baz' => 2]);
+        $this->get('foo')->shouldReturn(1);
+        $this->get('baz')->shouldReturn(2);
     }
 }

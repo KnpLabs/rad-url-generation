@@ -16,7 +16,8 @@
         "symfony/routing": "~2.5"
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "~2.1",
+        "knplabs/phpspec-welldone-extension": "dev-master"
     },
     "autoload": {
         "psr-0": {
