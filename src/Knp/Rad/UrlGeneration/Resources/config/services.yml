@@ -1,12 +1,18 @@
 parameters:
-    knp_rad_url_generation.routing.parameter_stack.class:  Knp\Rad\UrlGeneration\Routing\ParameterStack
-    knp_rad_url_generation.routing.router.class:           Knp\Rad\UrlGeneration\Routing\Router
+    knp_rad_url_generation.event_listener.parameter_extraction_listener.class:  Knp\Rad\UrlGeneration\EventListener\ParameterExtractionListener
+    knp_rad_url_generation.routing.parameter_stack.class:                       Knp\Rad\UrlGeneration\Routing\ParameterStack
+    knp_rad_url_generation.routing.router.class:                                Knp\Rad\UrlGeneration\Routing\Router
 
 services:
-    knp_rad_url_generation.routing.parameter_stack:
-        class: %knp_rad_url_generation.routing.parameter_stack.class%
+    knp_rad_url_generation.event_listener.parameter_extraction_listener:
+        class: %knp_rad_url_generation.event_listener.parameter_extraction_listener.class%
+        arguments:
+            - @knp_rad_url_generation.routing.parameter_stack
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onRequest }
+
+    knp_rad_url_generation.routing.parameter_stack:
+        class: %knp_rad_url_generation.routing.parameter_stack.class%
 
     knp_rad_url_generation.routing.router:
         class: %knp_rad_url_generation.routing.router.class%
@@ -14,3 +20,4 @@ services:
         arguments:
             - @knp_rad_url_generation.routing.router.inner
             - @knp_rad_url_generation.routing.parameter_stack
+
