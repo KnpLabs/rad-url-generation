@@ -1,5 +1,7 @@
 Rapid Application Development : Url Generation
 ==============================================
+
+[![Join the chat at https://gitter.im/KnpLabs/rad-url-generation](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/KnpLabs/rad-url-generation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Simply auto-complete needed route parameters with existing ones.
 
 [![Build Status](https://travis-ci.org/KnpLabs/rad-url-generation.svg)](https://travis-ci.org/KnpLabs/rad-url-generation)
