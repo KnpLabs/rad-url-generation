@@ -11,17 +11,18 @@
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/dependency-injection": "~2.5",
-        "symfony/http-kernel": "~2.5",
-        "symfony/routing": "~2.5"
+        "symfony/config": "~2.8||~3.0",
+        "symfony/dependency-injection": "~2.8||~3.0",
+        "symfony/http-kernel": "~2.8||~3.0",
+        "symfony/routing": "~2.8||~3.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.1",
+        "phpspec/phpspec": "~2.4",
         "knplabs/phpspec-welldone-extension": "dev-master"
     },
     "autoload": {
-        "psr-0": {
-            "Knp\\Rad\\UrlGeneration": "src/"
+        "psr-4": {
+            "Knp\\Rad\\UrlGeneration\\": "src/Knp/Rad/UrlGeneration/"
         }
     },
     "config": {
