@@ -9,7 +9,7 @@ Simply auto-complete needed route parameters with existing ones.
 #Installation
 
 ```bash
-composer require knplabs/rad-url-generation ~1.0
+composer require knplabs/rad-url-generation ~2.0
 ```
 
 ```php
