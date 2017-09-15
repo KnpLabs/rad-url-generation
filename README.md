@@ -10,7 +10,7 @@ Simply auto-complete needed route parameters with existing ones.
 
 * [@Einenlum](https://github.com/Einenlum)
 
-#Installation
+# Installation
 
 ```bash
 composer require knplabs/rad-url-generation ~2.0
@@ -34,11 +34,11 @@ class AppKernel
 }
 ```
 
-#Usages
+# Usages
 
 Just continue to use former url generation, nothing changes concerning the implementation. The only change is you don't repeat current route parameters anymore.
 
-##Example 1
+## Example 1
 
 Current route:
 ```yml
@@ -46,7 +46,7 @@ app_products_show:
     path: /shops/{shop}/products/{products}/
 ```
 
-My current url is /shops/12/products/345/. I want to build again the same url. Should I repeat route parameters if it already is my current route?
+My current url is `/shops/12/products/345/`. I want to build again the same url. Should I repeat route parameters if it already is my current route?
 
 Nope.
 ```php
@@ -56,7 +56,7 @@ $router->generate('app_products_show', ['shop' => 1]);                   // Retu
 $router->generate('app_products_show', ['shop' => 1, 'product' => 122]); // Returns /shops/1/products/122/
 ```
 
-##Example 2
+## Example 2
 
 Current route:
 ```yml
@@ -81,7 +81,7 @@ But why should I repeat already existing parameters ?
 $router->generate('app_variant_show', ['variant' => 23]); // Returns /shops/1/products/122/variants/23/
 ```
 
-#Works with
+# Works with
 
 - Router service : `$container->get('router')->generate('app_products_show')`.
 - Controller shortcuts: `$this->generateUrl('app_products_show')` and `$this->redirectToRoute('app_products_show')`.
