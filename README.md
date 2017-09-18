@@ -6,6 +6,10 @@ Simply auto-complete needed route parameters with existing ones.
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KnpLabs/rad-url-generation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KnpLabs/rad-url-generation/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/knplabs/rad-url-generation/v/stable.svg)](https://packagist.org/packages/knplabs/rad-url-generation) [![Total Downloads](https://poser.pugx.org/knplabs/rad-url-generation/downloads.svg)](https://packagist.org/packages/knplabs/rad-url-generation) [![Latest Unstable Version](https://poser.pugx.org/knplabs/rad-url-generation/v/unstable.svg)](https://packagist.org/packages/knplabs/rad-url-generation) [![License](https://poser.pugx.org/knplabs/rad-url-generation/license.svg)](https://packagist.org/packages/knplabs/rad-url-generation)
 
+# Official maintainers:
+
+* [@Einenlum](https://github.com/Einenlum)
+
 #Installation
 
 ```bash
