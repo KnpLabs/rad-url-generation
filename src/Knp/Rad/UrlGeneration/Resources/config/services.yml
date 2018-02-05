@@ -20,4 +20,5 @@ services:
         arguments:
             - @knp_rad_url_generation.routing.router.inner
             - @knp_rad_url_generation.routing.parameter_stack
-
+            - %kernel.cache_dir%
+            - %kernel.debug%
